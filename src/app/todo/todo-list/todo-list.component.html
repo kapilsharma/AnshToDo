@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col ml-auto">
     <button
-      class="float-right btn btn-primary"
+      class="float-right btn btn-primary my-1"
       (click)="onNewButtonClick()">
       New
     </button>
@@ -21,14 +21,14 @@
       <tbody>
         <tr *ngFor="let todo of todos">
           <th scope="row" class="form-check form-group">
-            <input type="checkbox" class="form-check-input" [checked]="todo.status">
+            <input type="checkbox" class="form-check-input ml-1" [checked]="todo.status">
           </th>
           <td>{{ todo.name }}</td>
           <td>{{ todo.category }}</td>
           <td>
             <div class="row">
               <div class="col">
-                <button class="btn btn-primary">Edit</button>
+                <button class="btn btn-primary mr-2">Edit</button>
                 <button class="btn btn-danger">Delete</button>
               </div>
             </div>

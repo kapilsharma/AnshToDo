@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ToDoService } from 'src/app/services/to-do.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -7,10 +8,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class TodoListComponent implements OnInit {
 
-  @Input() todos;
+  todos;
   @Output() addNewToDoButtonClicked = new EventEmitter();
 
-  constructor() { }
+  constructor(toDoService: ToDoService) {
+    this.todos = toDoService.tasks;
+  }
 
   ngOnInit() {
   }

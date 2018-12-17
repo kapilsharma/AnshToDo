@@ -1,33 +1,35 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ToDoService } from 'src/app/services/to-do.service';
+import { ToDo } from 'src/app/models/ToDo';
 
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html',
-  styleUrls: ['./todo-form.component.css']
+  styleUrls: ['./todo-form.component.css'],
+  providers: [ToDoService]
 })
 export class TodoFormComponent implements OnInit {
 
-  @Output() addNewToDo = new EventEmitter<{
-    name: String,
-    category: String,
-    status: Boolean
-  }>();
+  @Output() addNewToDo = new EventEmitter();
 
   name: string = "";
   category: string = "";
   status: boolean = false;
 
-  constructor() { }
+  toDoService: ToDoService;
+
+  constructor(toDoService: ToDoService) {
+    this.toDoService = toDoService;
+  }
 
   ngOnInit() {
   }
 
   onSubmitClicked() {
-    this.addNewToDo.emit({
-      name: this.name,
-      category: this.category,
-      status: this.status
-    });
-  }
+    this.toDoService.tasks.push(
+      new ToDo(this.name, this.category, this.status)
+    );
 
+    this.addNewToDo.emit();
+  }
 }

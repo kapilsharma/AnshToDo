@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { TodoComponent } from './todo/todo.component';
 import { TodoListComponent } from './todo/todo-list/todo-list.component';
 import { TodoFormComponent } from './todo/todo-form/todo-form.component';
+import { ToDoService } from './services/to-do.service';
 
 @NgModule({
   declarations: [
