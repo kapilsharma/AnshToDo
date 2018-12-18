@@ -10,6 +10,7 @@ export class TodoListComponent implements OnInit {
 
   todos;
   @Output() addNewToDoButtonClicked = new EventEmitter();
+  @Output() editToDoButtonClicked = new EventEmitter<{index: number}>()
 
   constructor(toDoService: ToDoService) {
     this.todos = toDoService.tasks;
@@ -20,6 +21,12 @@ export class TodoListComponent implements OnInit {
 
   onNewButtonClick() {
     this.addNewToDoButtonClicked.emit();
+  }
+
+  onEditButtonClicked(index) {
+    this.editToDoButtonClicked.emit({
+      'index': index
+    });
   }
 
 }

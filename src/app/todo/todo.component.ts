@@ -14,6 +14,10 @@ export class TodoComponent implements OnInit {
 
   listPage = true;
   formPage = false;
+  editPage = false;
+
+  task: ToDo;
+  index: number;
 
   constructor(toDoService: ToDoService) {
     this.tasks = toDoService.tasks;
@@ -31,6 +35,16 @@ export class TodoComponent implements OnInit {
     //this.tasks.push(toDo);
     this.formPage = false;
     this.listPage = true;
+  }
+
+  onToDoEditted(toDoEdit) {
+    console.log("In onToDoEditted");
+    this.index = toDoEdit.index;
+    this.task = this.tasks[this.index];
+
+    this.formPage = false;
+    this.listPage = false;
+    this.editPage = true;
   }
 
 }
