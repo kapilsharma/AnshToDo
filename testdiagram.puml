@@ -1,0 +1,43 @@
+@startuml
+
+' Management Team
+
+rectangle Management as mgmt {
+  :Marco/Shweta: as ms
+  :Peeyush/Ninad: as pn
+  ms -> pn
+}
+
+' PHP Team
+
+rectangle "PHP TL" as phptl {
+  (Kapil)
+  (Ramesh)
+  (Krish)
+}
+
+mgmt --> phptl
+
+rectangle "PHP ML" as phpml {
+  (Santosh)
+  (Amol)
+  (Kaustubh)
+  (Uday)
+  (Hina)
+  (Ravindra A)
+  (Raviraj)
+  (Rohan)
+  (Narendra)
+}
+phptl ---> phpml
+
+rectangle "DotNet TL" as dntl {
+  (Nizam)
+  (Sagar)
+  (Ravi)
+  (Girish)
+}
+
+mgmt --> dntl
+
+@enduml

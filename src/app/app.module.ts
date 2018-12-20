@@ -10,6 +10,8 @@ import { TodoListComponent } from './todo/todo-list/todo-list.component';
 import { TodoFormComponent } from './todo/todo-form/todo-form.component';
 import { ToDoService } from './services/to-do.service';
 import { TodoEditComponent } from './todo/todo-edit/todo-edit.component';
+import { TestComponent } from './test/test.component';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { TodoEditComponent } from './todo/todo-edit/todo-edit.component';
     TodoComponent,
     TodoListComponent,
     TodoFormComponent,
-    TodoEditComponent
+    TodoEditComponent,
+    TestComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
