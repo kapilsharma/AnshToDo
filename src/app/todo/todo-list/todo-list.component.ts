@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToDoService } from 'src/app/services/to-do.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-todo-list',
@@ -7,12 +8,13 @@ import { ToDoService } from 'src/app/services/to-do.service';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent implements OnInit {
-
   todos;
-  @Output() addNewToDoButtonClicked = new EventEmitter();
-  @Output() editToDoButtonClicked = new EventEmitter<{index: number}>()
 
-  constructor(toDoService: ToDoService) {
+  constructor(
+    toDoService: ToDoService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this.todos = toDoService.tasks;
   }
 
@@ -20,13 +22,13 @@ export class TodoListComponent implements OnInit {
   }
 
   onNewButtonClick() {
-    this.addNewToDoButtonClicked.emit();
+    // this.addNewToDoButtonClicked.emit();
+    // this.router.navigate(['/todo/new'])
+    this.router.navigate(['new'], { relativeTo: this.route })
   }
 
   onEditButtonClicked(index) {
-    this.editToDoButtonClicked.emit({
-      'index': index
-    });
+    this.router.navigate(['/todo', 'edit', index]);
   }
 
 }

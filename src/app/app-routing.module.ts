@@ -3,10 +3,19 @@ import { Routes, RouterModule } from '@angular/router';
 import { TodoComponent } from './todo/todo.component';
 import { TestComponent } from './test/test.component';
 import { CategoryComponent } from './category/category.component';
+import { TodoFormComponent } from './todo/todo-form/todo-form.component';
+import { TodoEditComponent } from './todo/todo-edit/todo-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'todo', pathMatch: 'full' },
-  { path: 'todo', component: TodoComponent },
+  {
+    path: 'todo',
+    component: TodoComponent,
+    children: [
+      { path: 'new', component: TodoFormComponent },
+      { path: 'edit/:id', component: TodoEditComponent }
+    ]
+  },
   { path: 'category', component: CategoryComponent },
   { path: 'test', component: TestComponent},
   { path: '**', redirectTo: 'todo' }

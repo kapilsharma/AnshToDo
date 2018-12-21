@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToDo } from 'src/app/models/ToDo';
+import { ToDoService } from 'src/app/services/to-do.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-todo-edit',
@@ -7,11 +9,21 @@ import { ToDo } from 'src/app/models/ToDo';
   styleUrls: ['./todo-edit.component.css']
 })
 export class TodoEditComponent implements OnInit {
-  @Input() task: ToDo;
+  id;
 
-  constructor() { }
+  constructor(
+    public toDoService: ToDoService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.id = this.route.snapshot.params['id'];
+
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.id = params['id'];
+      }
+    );
   }
 
 }

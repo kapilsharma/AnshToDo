@@ -12,10 +12,6 @@ import { ToDoService } from '../services/to-do.service';
 export class TodoComponent implements OnInit {
   tasks;
 
-  listPage = true;
-  formPage = false;
-  editPage = false;
-
   task: ToDo;
   index: number;
 
@@ -24,27 +20,6 @@ export class TodoComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  showNewToDoForm(){
-    this.listPage = false;
-    this.formPage = true;
-  }
-
-  onToDoAdded(t) {
-    //this.tasks.push(toDo);
-    this.formPage = false;
-    this.listPage = true;
-  }
-
-  onToDoEditted(toDoEdit) {
-    console.log("In onToDoEditted");
-    this.index = toDoEdit.index;
-    this.task = this.tasks[this.index];
-
-    this.formPage = false;
-    this.listPage = false;
-    this.editPage = true;
   }
 
 }
