@@ -8,24 +8,27 @@
           id="task"
           aria-describedby="emailHelp"
           name="name"
-          [(ngModel)]="toDoService.tasks[id].name">
+          [value]="toDoService.tasks[id].name"
+          #name>
       </div>
       <div class="form-group">
         <label for="category">Category</label>
         <input type="text"
           class="form-control"
           name="category"
-          [(ngModel)]="toDoService.tasks[id].category">
+          value="{{toDoService.tasks[id].category}}"
+          #category>
       </div>
       <div class="form-group form-check">
         <input type="checkbox"
           class="form-check-input"
           name="status"
-          [(ngModel)]="toDoService.tasks[id].status">
+          [checked]="toDoService.tasks[id].status"
+          #status>
         <label class="form-check-label" for="status">Completed</label>
       </div>
       <button class="btn btn-warning">Clear</button>
-      <button class="btn btn-primary" (click)="onSubmitClicked()">Submit</button>
+      <button class="btn btn-primary" (click)="onSubmitClicked(name, status)">Submit</button>
     </form>
   </div>
 </div>

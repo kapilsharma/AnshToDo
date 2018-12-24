@@ -12,6 +12,7 @@ import { ToDoService } from './services/to-do.service';
 import { TodoEditComponent } from './todo/todo-edit/todo-edit.component';
 import { TestComponent } from './test/test.component';
 import { CategoryComponent } from './category/category.component';
+import { Test2Component } from './test/test2/test2.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CategoryComponent } from './category/category.component';
     TodoFormComponent,
     TodoEditComponent,
     TestComponent,
-    CategoryComponent
+    CategoryComponent,
+    Test2Component
   ],
   imports: [
     BrowserModule,
