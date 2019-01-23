@@ -22,7 +22,8 @@ export class TodoFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmitClicked() {
+  onSubmitClicked(refForm) {
+    console.log(refForm);
     this.toDoService.tasks.push(
       new ToDo(this.name, this.category, this.status)
     );
