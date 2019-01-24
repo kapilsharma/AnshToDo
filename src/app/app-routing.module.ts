@@ -5,6 +5,7 @@ import { TestComponent } from './test/test.component';
 import { CategoryComponent } from './category/category.component';
 import { TodoFormComponent } from './todo/todo-form/todo-form.component';
 import { TodoEditComponent } from './todo/todo-edit/todo-edit.component';
+import { ReactiveFormComponent } from './todo/reactive-form/reactive-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'todo', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
     component: TodoComponent,
     children: [
       { path: 'new', component: TodoFormComponent },
+      { path: 'newReactive', component: ReactiveFormComponent },
       { path: 'edit/:id', component: TodoEditComponent }
     ]
   },

@@ -9,10 +9,7 @@ import { ToDo } from 'src/app/models/ToDo';
 })
 export class TodoFormComponent implements OnInit {
 
-  name: string = "";
-  category: string = "";
-  status: boolean = false;
-
+  toDoModel : ToDo;
   toDoService: ToDoService;
 
   constructor(toDoService: ToDoService) {
@@ -20,16 +17,14 @@ export class TodoFormComponent implements OnInit {
   }
 
   ngOnInit() {
+this.toDoModel = new ToDo('','',false);
   }
 
   onSubmitClicked(refForm) {
-    console.log(refForm);
+    const formValues = refForm.value;
     this.toDoService.tasks.push(
-      new ToDo(this.name, this.category, this.status)
+      new ToDo(formValues.name, formValues.category, formValues.status)
     );
-
-    this.name = "";
-    this.category = "";
-    this.status = false;
+    refForm.reset();
   }
 }

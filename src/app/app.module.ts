@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { TodoEditComponent } from './todo/todo-edit/todo-edit.component';
 import { TestComponent } from './test/test.component';
 import { CategoryComponent } from './category/category.component';
 import { Test2Component } from './test/test2/test2.component';
+import { ReactiveFormComponent } from './todo/reactive-form/reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +25,14 @@ import { Test2Component } from './test/test2/test2.component';
     TodoEditComponent,
     TestComponent,
     CategoryComponent,
-    Test2Component
+    Test2Component,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

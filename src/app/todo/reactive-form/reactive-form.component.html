@@ -1,0 +1,30 @@
+<div class="col">
+    <div class="row">
+        <div class="col">
+            <form id=formId (ngSubmit)="onSubmitClicked()" [formGroup]="todoForm">
+                <div class="form-group">
+                    <label for="task">Task</label>
+                    <input type="text" class="form-control" [ngClass]="{'is-invalid':!todoForm.get('name').valid && !todoForm.get('name').pristine}" name="name" required formControlName="name" minlength="4">
+                    <div *ngIf="!todoForm.get('name').valid && !todoForm.get('name').pristine" class="invalid-feedback">
+                        <span *ngIf="todoForm.get('name').errors.required">
+                                  Name is invalid
+                      </span>
+                        <span *ngIf="todoForm.get('name').errors.minlength">
+                              Name must be at least 4 characters long.
+                      </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <input type="text" class="form-control" name="category" required formControlName="category">
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" name="status" formControlName="status">
+                    <label class="form-check-label" for="status">Completed</label>
+                </div>
+                <button class="btn btn-warning" type="button" (click)="todoForm.reset()">Clear</button>
+                <button class="btn btn-primary" [disabled]="!todoForm.valid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
