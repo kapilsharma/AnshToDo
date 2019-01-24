@@ -24,7 +24,7 @@ export class TodoListComponent implements OnInit {
   onNewButtonClick() {
     // this.addNewToDoButtonClicked.emit();
     // this.router.navigate(['/todo/new'])
-    this.router.navigate(['new'], { relativeTo: this.route })
+    this.router.navigate(['new'], { relativeTo: this.route });
   }
 
   onEditButtonClicked(index) {

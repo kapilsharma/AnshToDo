@@ -13,7 +13,7 @@ export class ReactiveFormComponent implements OnInit {
   todoForm: FormGroup;
   todoModel: ToDo;
 
-  constructor(private formBuilder: FormBuilder, private toDoService:ToDoService) { }
+  constructor(private formBuilder: FormBuilder, private toDoService: ToDoService) { }
 
   ngOnInit() {
     this.todoModel = new ToDo('', '', false);

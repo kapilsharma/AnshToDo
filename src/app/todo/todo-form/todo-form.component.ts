@@ -9,7 +9,7 @@ import { ToDo } from 'src/app/models/ToDo';
 })
 export class TodoFormComponent implements OnInit {
 
-  toDoModel : ToDo;
+  toDoModel: ToDo;
   toDoService: ToDoService;
 
   constructor(toDoService: ToDoService) {
@@ -17,7 +17,7 @@ export class TodoFormComponent implements OnInit {
   }
 
   ngOnInit() {
-this.toDoModel = new ToDo('','',false);
+    this.toDoModel = new ToDo('', '', false);
   }
 
   onSubmitClicked(refForm) {
