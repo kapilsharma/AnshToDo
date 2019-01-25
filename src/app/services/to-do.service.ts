@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 
 import { ToDo } from '../models/ToDo';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
+@Injectable({
+  providedIn: 'root'
+})
 @Injectable()
 export class ToDoService {
   tasks = [

@@ -27,4 +27,41 @@
             </form>
         </div>
     </div>
+    <hr>
+    <div class="row">
+
+        <div class="col">
+            <button class="btn btn-info" type="button" (click)="addTodoGroup()">AddTodo</button>
+
+            <form id=formId (ngSubmit)="onSubmitMultiple()" [formGroup]="multipleToDoForm">
+                <div formArrayName="todos" *ngFor="let contact of todos['controls']; let todoIndex = index;">
+                    <div [formGroupName]="todoIndex">
+                        <div class="form-group">
+                            <label for="task">Task</label>
+                            <input type="text" class="form-control" name="name" formControlName="name">
+                            <!-- <div *ngIf="!todoForm.get('name').valid && !todoForm.get('name').pristine" class="invalid-feedback">
+                                <span *ngIf="todoForm.get('name').errors.required">
+                                  Name is invalid
+                      </span>
+                                <span *ngIf="todoForm.get('name').errors.minlength">
+                              Name must be at least 4 characters long.
+                      </span>
+                            </div> -->
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <input type="text" class="form-control" name="category" formControlName="category">
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" name="status" formControlName="status">
+                            <label class="form-check-label" for="status">Completed</label>
+                        </div>
+                    </div>
+                    <button class="btn btn-warning" type="button" (click)="removeToDo(todoIndex)">delete</button>
+
+                </div>
+                <button class="btn btn-primary" [disabled]="!multipleToDoForm.valid">Submit</button>
+            </form>
+        </div>
+    </div>
 </div>
